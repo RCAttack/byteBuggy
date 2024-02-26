@@ -1,2 +1,0 @@
-# byteBuggy
-IoT penetration Testing

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Website Title</title>
+    <title> Website Title</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -42,12 +42,12 @@
     </header>
 
     <section>
-        <h2>Welcome to Your Website!</h2>
-        <p>This is a basic website template. Modify and add content as needed.</p>
+        <h2>Welcome to ByteBuggy!</h2>
+        <p>basic website stuff</p>
     </section>
 
     <footer>
-        <p>&copy; 2024 Your Website Name</p>
+        <p>&copy; 2024 ByteBuggy</p>
     </footer>
 
 </body>

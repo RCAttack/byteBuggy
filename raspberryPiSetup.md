@@ -88,10 +88,10 @@ reboot
 
 **CHANGING PASSWORD:**
 
-It is highly recommended that you change your password.
+It is highly recommended that you change your password. Change '<userName>' to the username you have.
 
 ```
-sudo passwd
+sudo passwd <userName>
 ```
 
 Enter the password you would like to use ( you won't be able to see your password as you type it, but it will ask you to retype it).
@@ -105,14 +105,18 @@ To install ssh in kali.
 sudo apt install ssh
 ```
 
-  * Enabling ssh
+  * Enabling ssh and automatic user login
     
-	```
-	sudo raspi-config
-	```
+    ```
+    sudo raspi-config
+    ```
   * Navigate to interface options
   * ssh
   * yes
+  * Navigate to Boot / Auto Login
+  * Desktop autologin
+  * put in the information if you have then save
+  * Go to console auto login and do the same as desktop (I am not sure if this step is necessary, but I did it anyway)
   * Exit
   * then reboot
 
@@ -123,16 +127,80 @@ sudo apt install ssh
 * If it is not clear, then google the `name` of the WiFi dongle with `linux driver install` in the search bar.
 * Our driver is [link](https://linux.brostrend.com/)
 
+SETTING STATIC IP
+======
 
-**ip ADDRESS:**
+**ip ADDRESS for the pi and your router:**
 
 ```
-ifconfig
+ip r | grep default
 ```
 
-![image](https://github.com/RCAttack/byteBuggy/assets/112519100/597c4ce7-3ecc-4db8-a49c-849181c5848c)
+The squared text is the static router ip and domain_name_servers, 'eth0' is the interface, '10.0.2.15' is the pi's ip address. All of this information needs to be saved, take a photo or copy and paste it to your liking.
 
-you will need to save the `inet` number in order to ssh into your pi.
+![image](https://github.com/RCAttack/byteBuggy/assets/112519100/4fe01633-08e2-4c0b-b1b2-831e5e30e34d)
+
+In the home directory type
+
+```
+sudo nano /etc/dhcpcd.conf
+```
+
+Once in nano type
+for [cidr-suffix] people normally put 24 in that block I am not sure why but that seems like it is the convention.
+
+```
+interface [interface-name]
+static ip_address=[ip-address]/[cidr-suffix]
+static routers=[router-ip-address]
+static domain_name_servers=[dns-address]
+```
+
+![image](https://github.com/RCAttack/byteBuggy/assets/112519100/8ed2bdac-94d2-4485-8215-769138758d94)
+
+
+you will need to save the `ip-address` number in order to ssh into your pi.
+
+
+SSH INTO THE PI LINUX
+======
+
+Open your laptop terminal if on linux
+
+type in your terminal. <ip-address> is the ip-address you have saved from earlier
+
+```
+sudo kali@<ip-address>
+```
+
+enter your PC's password
+
+then the raspberry pi password
+
+
+
+SSH INTO THE PI WINDOWS
+======
+
+** With Putty**
+
+Download [Putty](https://www.putty.org/) if not installed already
+
+Open Putty
+
+Under Host Name (or IP address), enter your Raspberry Pi’s IP address or hostname.
+
+Under Connection type, select SSH.
+
+Select Open, and enter your username and password.
+
+** With powershell**
+
+In the Windows search bar type PowerShell
+
+Enter the same steps as in the linux terminal
+
+
 
 
 

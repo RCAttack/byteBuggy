@@ -182,7 +182,7 @@ then the raspberry pi password
 SSH INTO THE PI WINDOWS
 ======
 
-** With Putty**
+**WITH PUTTY:**
 
 Download [Putty](https://www.putty.org/) if not installed already
 
@@ -194,7 +194,7 @@ Under Connection type, select SSH.
 
 Select Open, and enter your username and password.
 
-** With powershell**
+**WITH POWERSHELL:**
 
 In the Windows search bar type PowerShell
 

@@ -188,6 +188,9 @@ Download [Putty](https://www.putty.org/) if not installed already
 
 Open Putty
 
+![image](https://github.com/RCAttack/byteBuggy/assets/112519100/e1819f28-fe67-4ea0-a0dd-56222fd84ee3)
+
+
 Under Host Name (or IP address), enter your Raspberry Pi’s IP address or hostname.
 
 Under Connection type, select SSH.

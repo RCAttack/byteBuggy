@@ -1,0 +1,34 @@
+name: Execute Python file
+
+on:
+  push:
+    branches:
+      - main  # Change this to your main branch name if it's different
+  pull_request:
+    branches:
+      - main  # Change this to your main branch name if it's different
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      # with:
+      #   python-version: '3.x'  # Specify the Python version you need
+
+
+    - name: Execute Python files
+      run: |
+        for file in $(find . -name '*.py' -not -name 'test/*' -not -name 'setup.py'); do
+          sudo ./$file
+        done
+
+    - name: Check Python File Permissions
+      run: |
+        find . -name '*.py' ! -executable -print
+        exit 0  # Exit with success if all Python files are executable

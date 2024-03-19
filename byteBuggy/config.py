@@ -117,11 +117,11 @@ class Configuration(object):
         cls.check_handshake = None
         cls.crack_handshake = False
 
-        # # Overwrite config values with arguments (if defined)
-        # cls.load_from_arguments()
+        # Overwrite config values with arguments (if defined)
+        cls.load_from_arguments()
 
-        # if load_interface:
-        #     cls.get_monitor_mode_interface()
+        if load_interface:
+            cls.get_monitor_mode_interface()
 
 
     @classmethod

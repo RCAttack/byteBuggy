@@ -314,8 +314,8 @@ class Arguments(object):
             dest='wordlist',
             metavar='[file]',
             type=str,
-            help=print('File containing passwords for cracking (default: %s)')
-                % self.config.wordlist)
+            help=print('File containing passwords for cracking (default: %s)'
+                % self.config.wordlist))
 
         wpa.add_argument('--wpadt',
             action='store',

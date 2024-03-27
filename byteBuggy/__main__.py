@@ -55,6 +55,8 @@ class ByteBuggy(object):
 
 
     def print_banner(self):
+        print ('Origina Author: derv82')
+        print('Original Repository: https://github.com/derv82/wifite2.git')
         print('''
                 ___.            __        __________                           
 \_ |__ ___.__._/  |_  ____\______   \__ __  ____   ____ ___.__.

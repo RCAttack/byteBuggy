@@ -44,23 +44,23 @@ class Arguments(object):
             action='count',
             default=0,
             dest='verbose',
-            help=print('Shows more options (-h -v). Prints commands and ' +
-                'outputs. (default: quiet)'))
+            help='Shows more options (-h -v). Prints commands and ' +
+                'outputs. (default: quiet)')
 
         glob.add_argument('-i',
             action='store',
             dest='interface',
             metavar='[interface]',
             type=str,
-            help=print('Wireless interface to use, e.g. wlan0mon ' +
-                '(default: ask)'))
+            help='Wireless interface to use, e.g. wlan0mon ' +
+                '(default: ask)')
 
         glob.add_argument('-c',
             action='store',
             dest='channel',
             metavar='[channel]',
             type=int,
-            help=print('Wireless channel to scan (default: all 2Ghz channels)'))
+            help='Wireless channel to scan (default: all 2Ghz channels)')
         glob.add_argument('--channel', help=argparse.SUPPRESS, action='store',
                 dest='channel', type=int)
 
@@ -75,7 +75,7 @@ class Arguments(object):
             '--random-mac',
             action='store_true',
             dest='random_mac',
-            help=print('Randomize wireless card MAC address (default: off)'))
+            help='Randomize wireless card MAC address (default: off)')
 
         glob.add_argument('-p',
             action='store',
@@ -84,16 +84,16 @@ class Arguments(object):
             const=10,
             metavar='scan_time',
             type=int,
-            help=print('Pillage: Attack all targets after ' +
-                'scan_time (seconds)'))
+            help='Pillage: Attack all targets after ' +
+                'scan_time (seconds)')
         glob.add_argument('--pillage', help=argparse.SUPPRESS, action='store',
                 dest='scan_time', nargs='?', const=10, type=int)
 
         glob.add_argument('--kill',
             action='store_true',
             dest='kill_conflicting_processes',
-            help=print('Kill processes that conflict with Airmon/Airodump ' +
-                '(default: off)'))
+            help='Kill processes that conflict with Airmon/Airodump ' +
+                '(default: off)')
 
         glob.add_argument('-b',
             action='store',
@@ -127,8 +127,8 @@ class Arguments(object):
         glob.add_argument('--clients-only',
             action='store_true',
             dest='clients_only',
-            help=print('Only show targets that have associated clients ' +
-                '(default: off)'))
+            help='Only show targets that have associated clients ' +
+                '(default: off)')
 
         glob.add_argument('--showb',
             action='store_true',
@@ -138,8 +138,8 @@ class Arguments(object):
         glob.add_argument('--nodeauths',
             action='store_true',
             dest='no_deauth',
-            help=print('Passive mode: Never deauthenticates clients ' +
-                '(default: deauth targets)'))
+            help='Passive mode: Never deauthenticates clients ' +
+                '(default: deauth targets)')
         glob.add_argument('--no-deauths', action='store_true', dest='no_deauth',
                 help=argparse.SUPPRESS)
         glob.add_argument('-nd',          action='store_true', dest='no_deauth',
@@ -172,14 +172,14 @@ class Arguments(object):
         wep.add_argument('--wep',
             action='store_true',
             dest='wep_filter',
-            help=print('Show only WEP-encrypted networks'))
+            help='Show only WEP-encrypted networks')
         wep.add_argument('-wep', help=argparse.SUPPRESS, action='store_true',
                 dest='wep_filter')
 
         wep.add_argument('--require-fakeauth',
             action='store_true',
             dest='require_fakeauth',
-            help=print('Fails attacks if fake-auth fails (default: off)'))
+            help='Fails attacks if fake-auth fails (default: off)')
         wep.add_argument('--nofakeauth', help=argparse.SUPPRESS, action='store_true',
                 dest='require_fakeauth')
         wep.add_argument('-nofakeauth', help=argparse.SUPPRESS, action='store_true',
@@ -189,8 +189,8 @@ class Arguments(object):
             action='store_true',
             dest='wep_keep_ivs',
             default=False,
-            help=print('Retain .IVS files and reuse when cracking ' +
-                '(default: off)'))
+            help='Retain .IVS files and reuse when cracking ' +
+                '(default: off)')
 
         wep.add_argument('--pps',
             action='store',
@@ -289,7 +289,7 @@ class Arguments(object):
         wpa.add_argument('--wpa',
             action='store_true',
             dest='wpa_filter',
-            help=print('Show only WPA-encrypted networks (includes WPS)'))
+            help='Show only WPA-encrypted networks (includes WPS)')
         wpa.add_argument('-wpa', help=argparse.SUPPRESS, action='store_true',
                 dest='wpa_filter')
 
@@ -306,15 +306,15 @@ class Arguments(object):
         wpa.add_argument('--new-hs',
             action='store_true',
             dest='ignore_old_handshakes',
-            help=print('Captures new handshakes, ignores existing handshakes ' +
-                'in %s (default: off)' % self.config.wpa_handshake_dir))
+            help='Captures new handshakes, ignores existing handshakes ' +
+                'in %s (default: off)' % self.config.wpa_handshake_dir)
 
         wpa.add_argument('--dict',
             action='store',
             dest='wordlist',
             metavar='[file]',
             type=str,
-            help=print('File containing passwords for cracking (default: %s)')
+            help='File containing passwords for cracking (default: %s)'
                 % self.config.wordlist)
 
         wpa.add_argument('--wpadt',
@@ -353,43 +353,43 @@ class Arguments(object):
         wps.add_argument('--wps',
             action='store_true',
             dest='wps_filter',
-            help=print('Show only WPS-enabled networks'))
+            help='Show only WPS-enabled networks')
         wps.add_argument('-wps', help=argparse.SUPPRESS, action='store_true',
                 dest='wps_filter')
 
         wps.add_argument('--no-wps',
             action='store_true',
             dest='no_wps',
-            help=self._verbose('{O}Never use {O}WPS PIN & {O}Pixie-Dust' +
+            help=self._verbose('Never use WPS PIN & Pixie-Dust' +
                 'attacks on targets (default: off)'))
 
         wps.add_argument('--wps-only',
             action='store_true',
             dest='wps_only',
-            help=print('{O}Only use WPS PIN & Pixie-Dust ' +
-                'attacks (default: off)'))
+            help='Only use WPS PIN & Pixie-Dust ' +
+                'attacks (default: off)')
 
         wps.add_argument('--pixie',    action='store_true', dest='wps_pixie',
-            help=self._verbose('{O}Only use WPS Pixie-Dust attack ' +
-                '(do not use {O}PIN attack)'))
+            help=self._verbose('Only use WPS Pixie-Dust attack ' +
+                '(do not use PIN attack)'))
 
         wps.add_argument('--no-pixie', action='store_true', dest='wps_no_pixie',
-            help=self._verbose('{O}Never use {O}WPS Pixie-Dust attack ' +
+            help=self._verbose('Never use WPS Pixie-Dust attack ' +
                 '(use PIN attack)'))
 
         wps.add_argument('--bully',
             action='store_true',
             dest='use_bully',
-            help=print('Use bully program for WPS PIN & Pixie-Dust attacks ' +
-                '(default: reaver)'))
+            help='Use bully program for WPS PIN & Pixie-Dust attacks ' +
+                '(default: reaver)')
         # Alias
         wps.add_argument('-bully', help=argparse.SUPPRESS, action='store_true',
                 dest='use_bully')
 
         # Ignore lock-outs
         wps.add_argument('--ignore-locks', action='store_true', dest='wps_ignore_lock',
-            help=print('Do {O}not stop WPS PIN attack if AP becomes {O}locked ' +
-                ' (default: stop)'))
+            help='Do not stop WPS PIN attack if AP becomes locked ' +
+                ' (default: stop)')
 
         # Time limit on entire attack.
         wps.add_argument('--wps-time',
@@ -431,8 +431,8 @@ class Arguments(object):
         pmkid.add_argument('--pmkid',
                          action='store_true',
                          dest='use_pmkid_only',
-                         help=print('{O}Only use PMKID capture, avoids other WPS & ' +
-                                      'WPA attacks (default: off)'))
+                         help='Only use PMKID capture, avoids other WPS & ' +
+                                      'WPA attacks (default: off)')
         # Alias
         pmkid.add_argument('-pmkid', help=argparse.SUPPRESS, action='store_true', dest='use_pmkid_only')
 
@@ -441,14 +441,14 @@ class Arguments(object):
                          dest='pmkid_timeout',
                          metavar='[sec]',
                          type=int,
-                         help=print('Time to wait for PMKID capture ' +
-                                      '(default: %d seconds)' % self.config.pmkid_timeout))
+                         help='Time to wait for PMKID capture ' +
+                                      '(default: %d seconds)' % self.config.pmkid_timeout)
 
     def _add_command_args(self, commands):
         commands.add_argument('--cracked',
             action='store_true',
             dest='cracked',
-            help=print('Print previously-cracked access points'))
+            help='Print previously-cracked access points')
         commands.add_argument('-cracked', help=argparse.SUPPRESS, action='store_true',
                 dest='cracked')
 
@@ -458,18 +458,17 @@ class Arguments(object):
             nargs='?',
             const='<all>',
             dest='check_handshake',
-            help=print('Check a .cap file (or all hs/*.cap files) ' +
-                'for WPA handshakes'))
+            help='Check a .cap file (or all hs/*.cap files) ' +
+                'for WPA handshakes')
         commands.add_argument('-check', help=argparse.SUPPRESS, action='store',
                 nargs='?', const='<all>', dest='check_handshake')
 
         commands.add_argument('--crack',
             action='store_true',
             dest='crack_handshake',
-            help=print('Show commands to crack a captured handshake'))
+            help='Show commands to crack a captured handshake')
 
 if __name__ == '__main__':
-    from .util.color import Color
     from .config import Configuration
     Configuration.initialize(False)
     a = Arguments(Configuration)

@@ -6,6 +6,7 @@ from ..tools.airodump import Airodump
 from ..util.input import raw_input, xrange
 from ..model.target import Target, WPSState
 from ..config import Configuration
+import sys
 
 from time import sleep, time
 
@@ -126,7 +127,9 @@ class Scanner(object):
                 else:
                     # We can fit the targets in the terminal without scrolling
                     # 'Move' cursor up so we will print over the previous list
-                    print(Scanner.UP_CHAR * (3 + self.previous_target_count))
+                    sys.stdout.write(Scanner.UP_CHAR * (3 + self.previous_target_count))
+                    # Ensure the output is written to the terminal immediately
+                    sys.stdout.flush()
 
         self.previous_target_count = len(self.targets)
 

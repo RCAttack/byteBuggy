@@ -27,13 +27,13 @@ class Arguments(object):
                 formatter_class=lambda prog: argparse.HelpFormatter(
                     prog, max_help_position=80, width=130))
 
-        self._add_global_args(parser.add_argument_group(print('SETTINGS')))
-        self._add_wep_args(parser.add_argument_group(print('WEP')))
-        self._add_wpa_args(parser.add_argument_group(print('WPA')))
-        self._add_wps_args(parser.add_argument_group(print('WPS')))
-        self._add_pmkid_args(parser.add_argument_group(print('PMKID')))
-        self._add_eviltwin_args(parser.add_argument_group(print('EVIL TWIN')))
-        self._add_command_args(parser.add_argument_group(print('COMMANDS')))
+        self._add_global_args(parser.add_argument_group('SETTINGS'))
+        self._add_wep_args(parser.add_argument_group('WEP'))
+        self._add_wpa_args(parser.add_argument_group('WPA'))
+        self._add_wps_args(parser.add_argument_group('WPS'))
+        self._add_pmkid_args(parser.add_argument_group('PMKID'))
+        self._add_eviltwin_args(parser.add_argument_group('EVIL TWIN'))
+        self._add_command_args(parser.add_argument_group('COMMANDS'))
 
         return parser.parse_args()
 
